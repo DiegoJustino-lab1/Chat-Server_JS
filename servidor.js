@@ -5,10 +5,11 @@ const aplicacao=express();
 const servidorHttp= http.createServer(aplicacao);
 const io= require('socket.io')(servidorHttp);
 
-io.addListener('connection', ()=>{
+
+io.addListener('connection', (socket)=>{
 console.log('Alguém se conectou');
-socket.addListenner('nova mensagem', ()=>{
-io.emit('nova mensagem', mensagem);
+socket.addListener('nova mensagem', (msg)=>{
+io.emit('nova mensagem', msg);
 
 })
 })

@@ -13,9 +13,9 @@ botaoEnviar.addEventListener('click',()=>{
 })
 
 
-socket.addEventListener('nova mensagem', (mensagem)=>{
-   const elementoMensgem= document.createElement('Li'); //cria um elemento li
-   elementoMensagem.textcontent=mensagem; //adiciona o texto da mensagem
-   elementoMensgem.classList.add('mensagem'); //adiciona a classe mensagem
-   chat.appendChild(elementoMensgem); //adiciona o elemento li ao chat
+socket.on('nova mensagem', (msg)=>{
+   const elementoMensagem= document.createElement('li'); //cria um elemento li
+   elementoMensagem.textContent=msg; //adiciona o texto da mensagem
+   elementoMensagem.classList.add('mensagem'); //adiciona a classe mensagem
+   chat.appendChild(elementoMensagem); //adiciona o elemento li ao chat
 })
